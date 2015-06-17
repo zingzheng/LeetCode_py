@@ -1,7 +1,7 @@
 ##Count Complete Tree Nodes
 ##Given a complete binary tree, count the number of nodes.
 ##
-##2015年6月9日  TLE
+##2015年6月9日  AC
 ##zss
 
 #Definition for a binary tree node.
