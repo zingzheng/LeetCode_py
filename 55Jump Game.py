@@ -4,7 +4,7 @@
 ##Each element in the array represents your maximum jump length at that position.
 ##Determine if you are able to reach the last index. 
 
-##2015年7月4日  WA
+##2015年7月4日 AC
 ##zss
 
 class Solution:
@@ -12,10 +12,8 @@ class Solution:
     # @return {boolean}
     def canJump(self, nums):
         if not nums:return False
-        i = 0
-        while True:
-            if i == len(nums)-1:
-                return True
-            if i >= len(nums) or nums[i]==0:
-                return False
-            i += nums[i]
+        maxstep = 0
+        for i,n in enumerate(nums):
+            if i>maxstep:return False
+            maxstep = max(maxstep,i+n)
+        return True
