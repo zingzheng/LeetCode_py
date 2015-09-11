@@ -18,12 +18,9 @@ class Solution:
     # @param {ListNode} l2
     # @return {ListNode}
     def addTwoNumbers(self, l1, l2):
-        if not l1:
-            return l2
-        if not l2:
-            return l1
-        h1 = l1
-        h2 = l2
+        if not l1:return l2
+        if not l2:return l1
+        h1,h2 = l1,l2
         h3 = ListNode(-1)
         l3 = h3
         flag = 0

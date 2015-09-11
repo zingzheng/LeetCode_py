@@ -44,9 +44,20 @@ class Solution:
             return self.getNumb(nums,numb,head,mid)
         elif nums[mid] < numb:
             return self.getNumb(nums,numb,mid+1,tail)
-        
-        
 
+
+class Solution:
+# @param {integer[]} nums
+# @param {integer} target
+# @return {integer[]}
+    def twoSum(self, nums, target):
+        dic={}
+        for i,n in enumerate(nums):
+            dic[n]=i+1
+        for i,n in enumerate(nums):
+            if target-n in dic and dic[target-n]!=i+1:
+                return[i+1,dic[target-n]]
+                    
 
             
 
