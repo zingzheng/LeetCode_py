@@ -8,7 +8,7 @@
 ##2015年7月2日  AC
 ##zss
 
-class Solution:
+class Solution2:
     # @param {integer[]} nums
     # @param {integer} target
     # @return {integer}
@@ -41,3 +41,29 @@ class Solution:
             return self.binarySearch(nums,i,mid-1,n)
         else:
             return self.binarySearch(nums,mid+1,j,n)
+
+
+class Solution:
+    # @param {integer[]} nums
+    # @param {integer} target
+    # @return {integer}
+    def search(self, nums, target):
+        low,high = 0,len(nums)-1
+        while low<=high:
+            mid = (low+high)//2
+            if nums[mid]==target:return mid
+            #在旋转点的左侧
+            if nums[mid]>nums[low]:
+                if nums[low]<=target<=nums[mid]:
+                    high = mid-1
+                else:
+                    low = mid+1
+            #在旋转点右侧
+            elif nums[mid]<nums[low]:
+                if nums[mid]<=target<=nums[high]:
+                    low = mid+1
+                else:
+                    high = mid-1
+            else:low+=1
+        return -1
+                

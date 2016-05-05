@@ -22,7 +22,6 @@ class Solution:
         
         c = head
         while c:
-
             if not nodes1 or nodes1[-1].val != c.val:
                 if not nodes2 or nodes2[-1].val != c.val:
                     nodes2.append(c)
@@ -52,3 +51,31 @@ class Test:
         l2.next = l3
         l3.next = l4
         return l1
+
+
+class Solution:
+    # @param {ListNode} head
+    # @return {ListNode}
+    def deleteDuplicates(self, head):
+        if not head: return head
+        dup = None
+        nodes = []
+        c = head
+        while c:
+            if not dup or dup.val != c.val:
+                if not nodes or nodes[-1].val != c.val:
+                    nodes.append(c)
+                else:
+                    nodes.pop(-1)
+                    dup = c
+            else:
+                dup = c
+                
+            c = c.next
+        for i in range(len(nodes)-1):
+            nodes[i].next = nodes[i+1]
+        if nodes:
+            nodes[-1].next = None
+            return nodes[0]
+        else:
+            return None

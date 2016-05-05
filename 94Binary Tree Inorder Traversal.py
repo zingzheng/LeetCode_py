@@ -31,3 +31,16 @@ class Solution:
                     stack.append(node.right)
         return result
                 
+
+class Solution2:
+    # @param {TreeNode} root
+    # @return {integer[]}
+    res=[]
+    def inorderTraversal(self, root):
+        self.res=[]
+        self.reduce(root)
+        return self.res
+    def reduce(self,root):
+        if root and root.left:self.reduce(root.left)
+        if root:self.res.append(root.val)
+        if root and root.right:self.reduce(root.right)

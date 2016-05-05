@@ -46,4 +46,23 @@ class Solution(object):
             phead=phead.next
             node=node.next
         return newlist.next
+
+
+
+class Solution(object):
+    def copyRandomList(self, head):
+        if not head:return head
+        nodes={None:None}
+        cur = head
+        while cur:
+            newCur = RandomListNode(cur.label)
+            nodes[cur]=newCur
+            cur = cur.next
+        cur = head
+        while cur:
+            nodes[cur].next = nodes[cur.next]
+            nodes[cur].random = nodes[cur.random]
+            cur = cur.next
+        return nodes[head]
+                
         

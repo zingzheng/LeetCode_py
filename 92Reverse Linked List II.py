@@ -49,4 +49,41 @@ class Solution:
             pre = cur
             cur = nex
         return pre,head
-            
+
+
+##---
+
+class Solution2:
+    # @param {ListNode} head
+    # @param {integer} m
+    # @param {integer} n
+    # @return {ListNode}
+    def reverseBetween(self, head, m, n):
+        if head == None or head.next == None or m == n:
+            return head
+        h = ListNode(-1)
+        h.next = head
+        pre,cur = h,h.next
+        i = 0
+        while i<=n:
+            if m<=i<n:
+                nex = cur.next
+                cur.next = pre
+                pre = cur
+                cur = nex
+            elif i==n:
+                p1.next = pre
+                p2.next = cur
+            else:
+                if i==m-1:
+                    p1,p2 = pre,cur
+                pre = cur
+                cur = cur.next
+            i+=1
+        return h.next
+        
+
+
+
+
+

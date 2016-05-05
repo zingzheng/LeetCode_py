@@ -21,3 +21,16 @@ class Solution(object):
         for i in range(1,len(nums)-1):
             if nums[i-1]<nums[i]>nums[i+1]:
                 return i
+
+
+class Solution(object):
+    def findPeakElement(self, nums):
+        low,high = 0,len(nums)-1
+        while low <= high:
+            if low==high:
+                return low
+            mid = (low+high)//2
+            if num[mid]<num[mid+1]:
+                low+=1
+            else:
+                high=mid

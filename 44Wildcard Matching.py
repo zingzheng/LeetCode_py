@@ -99,4 +99,33 @@ class Solution:
                 return begin
         
         
-        
+
+
+class Solution2:
+    # @param {string} s
+    # @param {string} p
+    # @return {boolean}
+    def isMatch(self, s, p):
+        lens,lenp = len(s),len(p)
+        dp = [[False]*(lenp+1) for i in range(lens+1)]
+        dp[0][0]=True
+        for j in range(1,lenp+1):
+            dp[0][j] = dp[0][j-1] and p[j-1]=='*'
+
+        return dp
+            
+        for i in range(1,lens+1):
+            for j in range(1,lenp+1):
+                if p[j-1]!='*':
+                    dp[i][j]=dp[i-1][j-1] and p[j-1] in (s[i-1],'?')
+                else:
+                    flag = 0
+                    for k in range(1,i+1):
+                        if dp[k][j-1]:
+                            dp[i][j],flag=True,1
+                            break
+                    if not flag:
+                        dp[i][j]=False
+                    
+        return dp[lens][lenp]
+            
